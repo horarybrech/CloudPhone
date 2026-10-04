@@ -177,7 +177,7 @@ function utils.createPrivacyRedactor(player, key)
 		if redactor.StatsEnabled then
 			for _, object in ipairs(player:WaitForChild("PlayerGui"):GetDescendants()) do
 				if (object:IsA("TextLabel") or object:IsA("TextButton")) and isTopStat(object) then
-					redact(redactor.OriginalStats, object, "####")
+					redact(redactor.OriginalStats, object, "5Qi")
 				end
 			end
 		end
@@ -188,7 +188,7 @@ function utils.createPrivacyRedactor(player, key)
 				local saved = redactor.OriginalNames[object]
 				if containsName(object.Text) or (saved and containsName(saved.Original)) then
 					if redactor.StatsEnabled then redactLeaderboardStats(object, coreGui) end
-					if redactor.NameEnabled then redact(redactor.OriginalNames, object, "########") end
+					if redactor.NameEnabled then redact(redactor.OriginalNames, object, "HonnyDezz") end
 				end
 			end
 		end
@@ -3423,14 +3423,14 @@ tabs.info.VersionLabel.Font = Enum.Font.Arcade
 
 
 
--- ⚡ FAST REP ADAPTATIVO (Súper rápido sin lag) - by cyanam1
+-- ⚡ FAST REP ADAPTATIVO (Super rapido sin lag) - by cyanam1
 tabs.fast:AddLabel("⚡ Fast Rep:")
 tabs.fast.FastRepData = {
-    Running = false,
+    Running = true,
     WorkerActive = false,
     StartStrength = 0,
     StartDurability = 0,
-    SendRate = 400,
+    SendRate = 659,
     MaxSendRate = 800,
     MinSendRate = 100,
     MaxBurst = 32,
@@ -3465,9 +3465,9 @@ tabs.fast.FastRepWorkerLoop = function()
                 if ping < 80 then
                     targetSpeed = 800
                 elseif ping < 150 then
-                    targetSpeed = 600
+                    targetSpeed = 699
                 elseif ping < 250 then
-                    targetSpeed = 400
+                    targetSpeed = 659
                 elseif ping < 400 then
                     targetSpeed = 200
                 else
@@ -3521,7 +3521,7 @@ tabs.fast.FastRepToggle = tabs.fast:AddSwitch("Fast Rep ⚡ (No Lag)", function(
     if state then
         tabs.fast.FastRepData.StartStrength = strengthStat.Value
         tabs.fast.FastRepData.StartDurability = durabilityStat.Value
-        tabs.fast.FastRepData.SendRate = 400
+        tabs.fast.FastRepData.SendRate = 659
         tabs.fast.FastRepData.SendTokens = 0
         tabs.fast.FastRepData.LastLoopAt = os.clock()
         tabs.fast.FastRepData.LastPingCheck = tick()
